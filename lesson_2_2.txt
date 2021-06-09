@@ -1,0 +1,99 @@
+Урок 2 задание 2
+
+Редакторы: см. скриншоты
+вывод результатов редакторов:
+
+user@user-VirtualBox:~$ vim file1.txt
+user@user-VirtualBox:~$ cat file1.txt
+Line 1
+Line 2
+Line 3
+user@user-VirtualBox:~$ nano file1.txt
+user@user-VirtualBox:~$ cat file1.txt
+Line 1
+Line 2
+Line 3
+Line 4
+
+
+Создание, копирование, удаление:
+1. просмотр содержимого каталога:
+user@user-VirtualBox:~$ ls
+Desktop           hello.sql             Pictures   Videos
+Documents         help_keyword_100.sql  Public     vk.dump_before.sql
+Downloads         Music                 shop.sql   vk_dump_lesson_4.sql
+example_dump.sql  mysql.sql             Templates  vk_dump.sql
+
+2. создание файла file1.txt, просмотр каталога:
+user@user-VirtualBox:~$ touch file1.txt
+user@user-VirtualBox:~$ ls
+Desktop           help_keyword_100.sql  Templates
+Documents         Music                 Videos
+Downloads         mysql.sql             vk.dump_before.sql
+example_dump.sql  Pictures              vk_dump_lesson_4.sql
+file1.txt         Public                vk_dump.sql
+hello.sql         shop.sql
+
+3. создание файла file2.txt:
+user@user-VirtualBox:~$ touch file2.txt
+
+4. создание папки lesson_2, просмотр каталога:
+user@user-VirtualBox:~$ mkdir lesson_2
+user@user-VirtualBox:~$ ls
+Desktop           file2.txt             mysql.sql  Videos
+Documents         hello.sql             Pictures   vk.dump_before.sql
+Downloads         help_keyword_100.sql  Public     vk_dump_lesson_4.sql
+example_dump.sql  lesson_2              shop.sql   vk_dump.sql
+file1.txt         Music                 Templates
+
+5. копирование файла file1.txt в file3.txt, просмотр каталога:
+user@user-VirtualBox:~$ cp file1.txt file3.txt
+user@user-VirtualBox:~$ ls
+Desktop           file2.txt             Music      Templates
+Documents         file3.txt             mysql.sql  Videos
+Downloads         hello.sql             Pictures   vk.dump_before.sql
+example_dump.sql  help_keyword_100.sql  Public     vk_dump_lesson_4.sql
+file1.txt         lesson_2              shop.sql   vk_dump.sql
+
+6. копирование файла file2.txt в папку lesson_2, просмотр папки:
+user@user-VirtualBox:~$ cp file2.txt ./lesson_2
+user@user-VirtualBox:~$ ls lesson_2
+file2.txt
+
+7. опирование папки lesson_2 в lesson_2_copy, просмотр каталога:
+user@user-VirtualBox:~$ cp -r  lesson_2 lesson_2_copy
+user@user-VirtualBox:~$ ls
+Desktop           file3.txt             Music      Videos
+Documents         hello.sql             mysql.sql  vk.dump_before.sql
+Downloads         help_keyword_100.sql  Pictures   vk_dump_lesson_4.sql
+example_dump.sql  lesson_2              Public     vk_dump.sql
+file1.txt         lesson2               shop.sql
+file2.txt         lesson_2_copy         Templates
+
+8. перенос файла file3.txt в папку lesson_2, просмотр каталога:
+user@user-VirtualBox:~$ mv file3.txt lesson_2
+user@user-VirtualBox:~$ ls
+Desktop           hello.sql             mysql.sql  vk.dump_before.sql
+Documents         help_keyword_100.sql  Pictures   vk_dump_lesson_4.sql
+Downloads         lesson_2              Public     vk_dump.sql
+example_dump.sql  lesson2               shop.sql
+file1.txt         lesson_2_copy         Templates
+file2.txt         Music                 Videos
+
+9. просмотр результата в папке lesson_2:
+user@user-VirtualBox:~$ ls lesson_2
+file2.txt  file3.txt
+
+10. удаление папки lesson_2_copy, просмотр каталога:
+user@user-VirtualBox:~$ rm -r lesson_2_copy
+user@user-VirtualBox:~$ ls
+Desktop           file2.txt             Music      Templates
+Documents         hello.sql             mysql.sql  Videos
+Downloads         help_keyword_100.sql  Pictures   vk.dump_before.sql
+example_dump.sql  lesson_2              Public     vk_dump_lesson_4.sql
+file1.txt         lesson2               shop.sql   vk_dump.sql
+
+
+
+
+
