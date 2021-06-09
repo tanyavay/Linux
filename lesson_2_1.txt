@@ -1,0 +1,92 @@
+Урок 2 задание 1
+
+параметры команды cd:
+
+user@user-VirtualBox:~$ cd
+user@user-VirtualBox:~$ pwd
+/home/user
+user@user-VirtualBox:~$ cd ~
+user@user-VirtualBox:~$ pwd
+/home/user
+user@user-VirtualBox:~$ cd /home
+user@user-VirtualBox:/home$ pwd
+/home
+user@user-VirtualBox:/home$ cd ..
+user@user-VirtualBox:/$ pwd
+/
+user@user-VirtualBox:/$ cd ~
+user@user-VirtualBox:~$ pwd
+/home/user
+
+
+Практика:
+
+user@user-VirtualBox:~$ pwd
+/home/user
+user@user-VirtualBox:~$ cd /usr/local/bin
+user@user-VirtualBox:/usr/local/bin$ pwd
+/usr/local/bin
+user@user-VirtualBox:/usr/local/bin$ cd ~
+user@user-VirtualBox:~$ cd /home
+user@user-VirtualBox:/home$ cd user
+user@user-VirtualBox:~$ pwd
+/home/user
+user@user-VirtualBox:~$ ls
+Desktop           hello.sql             Pictures   Videos
+Documents         help_keyword_100.sql  Public     vk.dump_before.sql
+Downloads         Music                 shop.sql   vk_dump_lesson_4.sql
+example_dump.sql  mysql.sql             Templates  vk_dump.sql
+user@user-VirtualBox:~$ cd .
+user@user-VirtualBox:~$ cd ./.config
+user@user-VirtualBox:~/.config$ pwd
+/home/user/.config
+user@user-VirtualBox:~/.config$ cd ..
+user@user-VirtualBox:~$ pwd
+/home/user
+user@user-VirtualBox:~$ ls -la
+total 1576
+drwxr-xr-x 17 user user    4096 июн  9 21:06 .
+drwxr-xr-x  3 root root    4096 мар  5 00:20 ..
+-rw-------  1 user user    1184 мая 30 22:08 .bash_history
+-rw-r--r--  1 user user     220 мар  5 00:20 .bash_logout
+-rw-r--r--  1 user user    3771 мар  5 00:20 .bashrc
+drwx------ 16 user user    4096 мая 27 10:35 .cache
+drwx------ 14 user user    4096 мар 10 22:40 .config
+drwxr-xr-x  2 user user    4096 мар  5 00:30 Desktop
+drwxr-xr-x  2 user user    4096 мар  5 00:30 Documents
+drwxr-xr-x  2 user user    4096 мар  5 00:30 Downloads
+-rw-rw-r--  1 user user    1836 мар 11 22:51 example_dump.sql
+drwx------  3 user user    4096 мар 10 22:13 .gnupg
+-rwxrwx---  1 user user      20 мар 10 22:34 hello.sql
+-rw-rw-r--  1 user user    3607 мар 11 23:39 help_keyword_100.sql
+drwx------  3 user user    4096 мар  5 00:30 .local
+drwx------  4 user user    4096 мар 10 22:54 .mozilla
+drwxr-xr-x  2 user user    4096 мар  5 00:30 Music
+-rw-r--r--  1 user user      36 мар 10 23:15 .my.cnf
+-rw-------  1 user user     890 мар 23 17:08 .mysql_history
+-rw-rw-r--  1 user user 1146291 мар 10 23:17 mysql.sql
+drwxr-xr-x  2 user user    4096 мар 18 22:13 Pictures
+-rw-r--r--  1 user user     807 мар  5 00:20 .profile
+drwxr-xr-x  2 user user    4096 мар  5 00:30 Public
+-rwxrwx---  1 user user    3264 июл 30  2018 shop.sql
+drwx------  2 user user    4096 мая 30 21:07 .ssh
+-rw-r--r--  1 user user       0 мар  5 00:34 .sudo_as_admin_successful
+drwxr-xr-x  2 user user    4096 мар  5 00:30 Templates
+drwx------  6 user user    4096 мар 10 22:54 .thunderbird
+-rw-r-----  1 user user       5 июн  9 21:05 .vboxclient-clipboard.pid
+-rw-r-----  1 user user       5 июн  9 21:05 .vboxclient-display-svga-x11.pid
+-rw-r-----  1 user user       5 июн  9 21:05 .vboxclient-draganddrop.pid
+-rw-r-----  1 user user       5 июн  9 21:05 .vboxclient-seamless.pid
+drwxr-xr-x  2 user user    4096 мар  5 00:30 Videos
+-rwxrwx---  1 user user  151886 мар 19 18:36 vk.dump_before.sql
+-rw-rw-r--  1 user user   82785 мар 21 19:02 vk_dump_lesson_4.sql
+-rw-rw-r--  1 user user   95985 мар 18 22:11 vk_dump.sql
+user@user-VirtualBox:~$ cd /
+user@user-VirtualBox:/$ ls
+bin    dev   lib    libx32      mnt   root  snap      sys  var
+boot   etc   lib32  lost+found  opt   run   srv       tmp
+cdrom  home  lib64  media       proc  sbin  swapfile  usr
+user@user-VirtualBox:/$ cd
+user@user-VirtualBox:~$ pwd
+/home/user
+
