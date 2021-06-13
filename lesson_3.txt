@@ -1,0 +1,50 @@
+Урок 3
+
+Задание 1
+
+a) user@user-VirtualBox:~$ sudo useradd -m -s /bin/bash user1
+
+user@user-VirtualBox:~$ sudo adduser user2
+Adding user `user2' ...
+Adding new group `user2' (1002) ...
+Adding new user `user2' (1002) with group `user2' ...
+Creating home directory `/home/user2' ...
+Copying files from `/etc/skel' ...
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+Sorry, passwords do not match.
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for user2
+Enter the new value, or press ENTER for the default
+	Full Name []: first
+	Room Number []: 1
+	Work Phone []: 111
+	Home Phone []: 1
+	Other []: 
+Is the information correct? [Y/n] y
+
+b) user@user-VirtualBox:~$ sudo userdel -r user2
+
+c) не требуется, т.к. может повлечь серьезные ошибки
+
+Задание 2
+
+a) user@user-VirtualBox:~$ sudo groupadd team1
+
+user@user-VirtualBox:~$ sudo addgroup team2
+
+b) user@user-VirtualBox:~$ sudo usermod -aG sudo user1
+
+c) user@user-VirtualBox:~$ groups user1
+user1 : team2 sudo
+user@user-VirtualBox:~$ sudo gpasswd -d user1 sudo
+Removing user user1 from group sudo
+user@user-VirtualBox:~$ groups user1
+user1 : team2
+
+Задание 3
+
+см. пункт (a) в Задании 2 и скриншот
