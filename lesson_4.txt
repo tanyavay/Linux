@@ -1,0 +1,23 @@
+Урок 4
+
+Задание 1
+
+a)  Создать файл, используя команду echo:
+
+user@user-VirtualBox:~$ echo 'Hello lesson4!' > file_l4.txt
+user@user-VirtualBox:~$ cat file_l4.txt
+Hello lesson4!
+
+b) Используя команду cat, прочитать содержимое каталога etc,
+ошибки перенаправить в отдельный файл:
+user@user-VirtualBox:~$ cat /etc/* 2> errors.log
+
+Задание 2
+
+user@user-VirtualBox:~$ ls -l | cut -d " " -f 1 | sort | uniq | grep -v 'total'
+drwxrwxr-x
+drwxr-xr-x
+-rw-rw-r--
+-rwxrwx---
+
+Задания 3 и 4: см. скриншоты
