@@ -1,0 +1,100 @@
+Урок 5
+
+Задание 1
+
+Создать файл file1 и наполнить его произвольным содержимым:
+
+user@user-VirtualBox:~$ mkdir lesson5_hw
+user@user-VirtualBox:~$ cd lesson5_hw
+user@user-VirtualBox:~/lesson5_hw$ echo "Hello lesson5!" > file1.txt
+user@user-VirtualBox:~/lesson5_hw$ cat file1.txt
+Hello lesson5!
+
+Скопировать его в file2. Создать символическую ссылку file3 на file1.
+Создать жёсткую ссылку file4 на file1. Посмотреть, какие inode у файлов:
+
+user@user-VirtualBox:~/lesson5_hw$ cp file1.txt file2.txt
+user@user-VirtualBox:~/lesson5_hw$ ln -s file1.txt file3.txt
+user@user-VirtualBox:~/lesson5_hw$ ln ./file1.txt ./file4.txt
+user@user-VirtualBox:~/lesson5_hw$ ls -li
+total 12
+293 -rw-rw-r-- 2 user user 15 июн 15 21:07 file1.txt
+294 -rw-rw-r-- 1 user user 15 июн 15 21:08 file2.txt
+295 lrwxrwxrwx 1 user user  9 июн 15 21:12 file3.txt -> file1.txt
+293 -rw-rw-r-- 2 user user 15 июн 15 21:07 file4.txt
+
+У жесткой ссылки inode такой же, как у file1, у символической - новый
+
+Удалить file1. Что стало с остальными созданными файлами?
+Попробовать вывести их на экран.
+
+user@user-VirtualBox:~/lesson5_hw$ rm file1.txt
+user@user-VirtualBox:~/lesson5_hw$ ls -li
+total 8
+294 -rw-rw-r-- 1 user user 15 июн 15 21:08 file2.txt
+295 lrwxrwxrwx 1 user user  9 июн 15 21:12 file3.txt -> file1.txt
+293 -rw-rw-r-- 1 user user 15 июн 15 21:07 file4.txt
+user@user-VirtualBox:~/lesson5_hw$ cat file2.txt
+Hello lesson5!
+user@user-VirtualBox:~/lesson5_hw$ cat file2.txt
+Hello lesson5!
+user@user-VirtualBox:~/lesson5_hw$ cat file3.txt
+cat: file3.txt: No such file or directory
+user@user-VirtualBox:~/lesson5_hw$ cat file4.txt
+Hello lesson5!
+
+После удаления file1 жесткая ссылка сломалась (красная)
+
+Задание2
+
+Дать созданным файлам другие, произвольные имена.
+Создать новую символическую ссылку.
+Переместить ссылки в другую директорию.
+
+user@user-VirtualBox:~/lesson5_hw$ sudo apt install rename
+user@user-VirtualBox:~/lesson5_hw$ rename 's/file/f_hw/' file*
+user@user-VirtualBox:~/lesson5_hw$ ls -l
+total 8
+-rw-rw-r-- 1 user user 15 июн 15 21:08 f_hw2.txt
+lrwxrwxrwx 1 user user  9 июн 15 21:12 f_hw3.txt -> file1.txt
+-rw-rw-r-- 1 user user 15 июн 15 21:07 f_hw4.txt
+user@user-VirtualBox:~/lesson5_hw$ mkdir new_dir
+user@user-VirtualBox:~/lesson5_hw$ ln -s f_hw2.txt f_hw_5.txt
+user@user-VirtualBox:~/lesson5_hw$ mv f_hw_5.txt new_dir/
+user@user-VirtualBox:~/lesson5_hw$ ls -l
+total 12
+-rw-rw-r-- 1 user user   15 июн 15 21:08 f_hw2.txt
+lrwxrwxrwx 1 user user    9 июн 15 21:12 f_hw3.txt -> file1.txt
+-rw-rw-r-- 1 user user   15 июн 15 21:07 f_hw4.txt
+drwxrwxr-x 2 user user 4096 июн 15 21:58 new_dir
+user@user-VirtualBox:~/lesson5_hw$ cd new_dir/
+user@user-VirtualBox:~/lesson5_hw/new_dir$ ls -l
+total 0
+lrwxrwxrwx 1 user user 9 июн 15 21:56 f_hw_5.txt -> f_hw2.txt
+user@user-VirtualBox:~/lesson5_hw/new_dir$ cat f_hw_5.txt 
+cat: f_hw_5.txt: No such file or directory
+
+После переноса в другую директорию ссылка сломалась
+
+Задание 3
+
+Создать два произвольных файла.
+Первому присвоить права на чтение и запись для владельца и группы,
+только на чтение — для всех.
+Второму присвоить права на чтение и запись только для владельца.
+Сделать это в численном и символьном виде.
+
+user@user-VirtualBox:~/lesson5_hw$ touch test1.txt test2.txt
+
+Численный:
+user@user-VirtualBox:~/lesson5_hw$ chmod 664 test1.txt
+user@user-VirtualBox:~/lesson5_hw$ chmod 600 test2.txt
+
+Стереть права:
+user@user-VirtualBox:~/lesson5_hw$ chmod ugo= test1.txt test2.txt
+
+Символьный:
+user@user-VirtualBox:~/lesson5_hw$ chmod ug+rw test1.txt
+user@user-VirtualBox:~/lesson5_hw$ chmod o+r test1.txt
+user@user-VirtualBox:~/lesson5_hw$ chmod u+rw test2.txt 
+
