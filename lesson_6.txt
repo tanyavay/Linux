@@ -1,0 +1,31 @@
+Урок 6
+
+Задание 1
+
+user@user-VirtualBox:~$ cat > script.sh
+#!/bin/bash
+tr -s '\n' < $1 | tr [:lower:] [:upper:] > $2
+user@user-VirtualBox:~$ chmod +x script.sh
+user@user-VirtualBox:~$ ./script.sh file2.txt file3.txt
+
+Задание 2
+
+user@user-VirtualBox:~$ cat > script2.sh
+user@user-VirtualBox:~$ cat > nano script2.sh
+user@user-VirtualBox:~$ chmod 777 script.sh
+user@user-VirtualBox:~$ cat > ./script2.sh
+
+Только я не поняла почему в этом скрипте не надо прописывать #!/bin/bash
+
+Задание 3
+
+user@user-VirtualBox:~$ user@user-VirtualBox:~$
+
+Задание 4
+
+a) user@user-VirtualBox:~$ grep -i cron /var/log/syslog
+b) user@user-VirtualBox:~$ cat /var/log/syslog | grep -i cron
+
+Задание 5
+
+user@user-VirtualBox:~$ echo reboot | sudo at 1:51pm 21/07/2021
